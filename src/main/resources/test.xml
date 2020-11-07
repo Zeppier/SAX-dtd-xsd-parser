@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE securityspace SYSTEM "securityspace.dtd">
+
+<securityspace xmlns="securityspace.xsd">
+    <telegram userid="1">
+        <user>telegramuser1</user>
+        <messages>
+
+            <notification>
+                <type>Motion detected</type>
+                <time>11.09.2020 17:47 EEST</time>
+                <imageUrl>https://example.url/image2.jpg</imageUrl>
+            </notification>
+            <systemMessage>
+                <text>Link setted successfuly</text>
+                <time>11.09.2020 17:45 EEST</time>
+            </systemMessage>
+        </messages>
+    </telegram>
+    <server>
+        <RTSP_stream userid="1">
+            <notification>
+                <type>Image blurred</type>
+                <time>11.09.2020 17:48 EEST</time>
+                <imageUrl>https://example.url/image1.jpg</imageUrl>
+            </notification>
+            <link>rtsp://example.com/rtsp1</link>
+            <owner>telegramuser1</owner>
+            <quality>360p</quality>
+            <settings>
+                <moveDetection>false</moveDetection>
+                <blurDetection>true</blurDetection>
+            </settings>
+        </RTSP_stream>
+        <RTSP_stream userid="1">
+            <link>rtsp://example.com/rtsp2</link>
+            <owner>telegramuser2</owner>
+            <quality>144p</quality>
+            <settings>
+                <moveDetection>true</moveDetection>
+                <blurDetection>true</blurDetection>
+            </settings>
+        </RTSP_stream>
+    </server>
+</securityspace>

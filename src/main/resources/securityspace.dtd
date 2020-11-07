@@ -1,0 +1,44 @@
+<!ELEMENT securityspace (telegram*,server)>
+<!ATTLIST securityspace
+        xmlns CDATA #REQUIRED>
+
+<!ELEMENT telegram (user,messages)>
+<!ATTLIST telegram
+  userid CDATA #REQUIRED>
+
+<!ELEMENT user (#PCDATA)>
+
+<!ELEMENT messages (notification*,systemMessage*)>
+
+<!ELEMENT notification (type,time,imageUrl)>
+
+<!ELEMENT type (#PCDATA)>
+
+<!ELEMENT time (#PCDATA)>
+
+<!ELEMENT imageUrl (#PCDATA)>
+
+<!ELEMENT systemMessage (text,time)>
+
+<!ELEMENT text (#PCDATA)>
+
+<!ELEMENT server (RTSP_stream*)>
+
+<!ELEMENT RTSP_stream (link,owner,quality,settings)>
+<!ATTLIST RTSP_stream
+      userId CDATA #REQUIRED>
+<!ELEMENT link (#PCDATA)>
+
+<!ELEMENT owner (#PCDATA)>
+
+<!ELEMENT quality (#PCDATA)>
+
+<!ELEMENT settings (moveDetection,blurDetection)>
+
+<!ELEMENT button (#PCDATA)>
+
+<!ELEMENT command (#PCDATA)>
+
+<!ELEMENT moveDetection (#PCDATA)>
+
+<!ELEMENT blurDetection (#PCDATA)>

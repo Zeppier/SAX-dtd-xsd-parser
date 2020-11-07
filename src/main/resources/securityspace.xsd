@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="securityspace.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="securityspace">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="telegram">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element type="xs:string" name="user"/>
+                            <xs:element name="messages">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="notification" maxOccurs="unbounded" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="type">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="Image blurred"/>
+                                                                <xs:enumeration value="Motion detected"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="time">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="11.09.2020 17:48 EEST"/>
+                                                                <xs:enumeration value="11.09.2020 17:47 EEST"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="imageUrl">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="https://example.url/image1.jpg"/>
+                                                                <xs:enumeration value="https://example.url/image2.jpg"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="systemMessage">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:string" name="text"/>
+                                                    <xs:element type="xs:string" name="time"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:byte" name="userid"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="server">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="RTSP_stream" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="link">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="rtsp://example.com/rtsp1"/>
+                                                    <xs:enumeration value="rtsp://example.com/rtsp2"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="owner">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="telegramuser1"/>
+                                                    <xs:enumeration value="telegramuser2"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="quality">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="360p"/>
+                                                    <xs:enumeration value="144p"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="settings">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="moveDetection">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="false"/>
+                                                                <xs:enumeration value="true"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element type="xs:string" name="blurDetection"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
